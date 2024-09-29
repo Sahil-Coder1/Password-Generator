@@ -46,77 +46,77 @@ function App() {
   }, [theme]);
 
   return (
-    <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 w-full h-screen flex flex-col items-center justify-center dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-700 transition-all duration-300">
-  <button 
-    className="absolute top-5 right-5 p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 shadow-md"
-    onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-    {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-  </button>
+    <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 w-full h-screen flex flex-col items-center justify-center dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-700 transition-all duration-300 p-2">
+      <button
+        className="absolute top-5 right-5 p-2 rounded-full bg-gray-200 border-gray-700 dark:border-gray-200 dark:text-white border-2 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 shadow-md"
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+        {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      </button>
 
-  <h1 className="text-5xl py-8 text-center text-white font-semibold dark:text-gray-100 transition-all duration-300">
-    Password Generator
-  </h1>
+      <h1 className="text-5xl py-8 text-center text-white font-semibold dark:text-gray-100 transition-all duration-300">
+        Password Generator
+      </h1>
 
-  <div className="bg-white dark:bg-gray-800 mx-4 text-center p-8 rounded-2xl shadow-2xl w-full max-w-lg transition-all duration-300">
-    <input
-      type="text"
-      name="n"
-      id="pass"
-      value={pass}
-      className="bg-green-100 dark:bg-gray-700 p-4 rounded-lg text-2xl text-center w-full border border-gray-300 dark:border-gray-600 dark:text-gray-100 focus:outline-none shadow-sm"
-      disabled
-    />
-    
-    <button
-      className="bg-green-600 dark:bg-green-700 text-xl text-white py-3 px-5 rounded-lg w-full mt-4 shadow-lg hover:bg-green-500 dark:hover:bg-green-600 transition ease-in-out duration-300"
-      onClick={() => Copy()}>
-      Copy
-    </button>
-
-    <div className="mt-8">
-      <label className="block text-gray-700 dark:text-gray-300 text-lg mb-2">Length: {len}</label>
-      <input
-        type="range"
-        id="vol"
-        name="vol"
-        min="10"
-        max="20"
-        value={len}
-        onChange={(e) => {
-          Password();
-          setLength(e.target.value);
-        }}
-        className="w-full mt-2 accent-green-600 dark:accent-green-500"
-      />
-    </div>
-
-    <div className="flex justify-between mt-6">
-      <div className="flex items-center">
+      <div className="bg-white dark:bg-gray-800 mx-4 text-center p-8 rounded-2xl shadow-2xl w-full max-w-lg transition-all duration-300">
         <input
-          type="checkbox"
-          onChange={(e) => setNumber(e.target.checked)}
-          className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
+          type="text"
+          name="n"
+          id="pass"
+          value={pass}
+          className="bg-green-100 dark:bg-gray-700 p-4 rounded-lg text-2xl text-center w-full border border-gray-300 dark:border-gray-600 dark:text-gray-100 focus:outline-none shadow-sm"
+          disabled
         />
-        <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Numbers</label>
-      </div>
 
-      <div className="flex items-center">
-        <input
-          type="checkbox"
-          onChange={(e) => setSymbol(e.target.checked)}
-          className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
-        />
-        <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Symbols</label>
+        <button
+          className="bg-green-600 dark:bg-green-700 text-xl text-white py-3 px-5 rounded-lg w-full mt-4 shadow-lg hover:bg-green-500 dark:hover:bg-green-600 transition ease-in-out duration-300"
+          onClick={() => Copy()}>
+          Copy
+        </button>
+
+        <div className="mt-8">
+          <label className="block text-gray-700 dark:text-gray-300 text-lg mb-2">Length: {len}</label>
+          <input
+            type="range"
+            id="vol"
+            name="vol"
+            min="10"
+            max="20"
+            value={len}
+            onChange={(e) => {
+              Password();
+              setLength(e.target.value);
+            }}
+            className="w-full mt-2 accent-green-600 dark:accent-green-500"
+          />
+        </div>
+
+        <div className="flex justify-between mt-6">
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              onChange={(e) => setNumber(e.target.checked)}
+              className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
+            />
+            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Numbers</label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              onChange={(e) => setSymbol(e.target.checked)}
+              className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
+            />
+            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Symbols</label>
+          </div>
+        </div>
+
+        <button
+          className="bg-yellow-600 dark:bg-yellow-700 text-xl text-white py-4 rounded-lg w-full mt-6 shadow-lg hover:bg-yellow-500 dark:hover:bg-yellow-600 transition ease-in-out duration-300"
+          onClick={() => Password()}>
+          Generate
+        </button>
       </div>
     </div>
-
-    <button
-      className="bg-yellow-600 dark:bg-yellow-700 text-xl text-white py-4 rounded-lg w-full mt-6 shadow-lg hover:bg-yellow-500 dark:hover:bg-yellow-600 transition ease-in-out duration-300"
-      onClick={() => Password()}>
-      Generate
-    </button>
-  </div>
-</div>
 
 
   )
