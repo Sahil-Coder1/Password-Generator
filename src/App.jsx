@@ -6,6 +6,7 @@ function App() {
   const [len, setLength] = useState(10);
   const [isNumber, setNumber] = useState(false);
   const [isSymbol, setSymbol] = useState(false);
+  const [isText, setText] = useState(false);
   const [theme, setTheme] = useState('light');
 
 
@@ -14,13 +15,23 @@ function App() {
     const number = '0123456789';
     const symbol = '~!@#$%^&*()`?'
     let password = "";
-    let textF = text.concat("");
-    if (isNumber && isSymbol) {
-      textF = text.concat(number).concat(symbol);
-    } else if (isSymbol) {
-      textF = text.concat(symbol);
+    let textF = '';
+    if (isNumber && isSymbol && isText) {
+      textF = textF.concat(number).concat(symbol).concat(text);
+    }
+    else if(isNumber && isSymbol){
+      textF = textF.concat(number).concat(symbol);
+    } else if(isNumber && isText){
+      textF = textF.concat(number).concat(text);
+    }  else if(isText && isSymbol){
+      textF = textF.concat(text).concat(symbol);
+    } 
+     else if (isSymbol) {
+      textF = textF.concat(symbol);
     } else if (isNumber) {
-      textF = text.concat(number);
+      textF = textF.concat(number);
+    } else if(isText){
+      textF = textF.concat(text);
     }
     for (let i = 0; i < len; i++) {
       const pas = Math.floor(Math.random() * textF.length);
@@ -98,6 +109,15 @@ function App() {
               className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
             />
             <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Numbers</label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              onChange={(e) => setText(e.target.checked)}
+              className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
+            />
+            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Text</label>
           </div>
 
           <div className="flex items-center">
