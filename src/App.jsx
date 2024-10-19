@@ -91,13 +91,13 @@ function App() {
             id="vol"
             name="vol"
             min="10"
-            max="20"
+            max="30"
             value={len}
             onChange={(e) => {
               Password();
               setLength(e.target.value);
             }}
-            className="w-full mt-2 accent-green-600 dark:accent-green-500"
+            className="w-1/2 mt-2 accent-green-600 dark:accent-green-500"
           />
         </div>
 
