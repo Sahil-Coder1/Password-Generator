@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
   const [pass, setPassword] = useState();
@@ -7,30 +7,27 @@ function App() {
   const [isNumber, setNumber] = useState(false);
   const [isSymbol, setSymbol] = useState(false);
   const [isText, setText] = useState(false);
-  const [theme, setTheme] = useState('light');
-
+  const [theme, setTheme] = useState("light");
 
   const Password = () => {
-    const text = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const number = '0123456789';
-    const symbol = '~!@#$%^&*()`?'
+    const text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const number = "0123456789";
+    const symbol = "!@#$%&*()?";
     let password = "";
-    let textF = '';
+    let textF = "";
     if (isNumber && isSymbol && isText) {
       textF = textF.concat(number).concat(symbol).concat(text);
-    }
-    else if(isNumber && isSymbol){
+    } else if (isNumber && isSymbol) {
       textF = textF.concat(number).concat(symbol);
-    } else if(isNumber && isText){
+    } else if (isNumber && isText) {
       textF = textF.concat(number).concat(text);
-    }  else if(isText && isSymbol){
+    } else if (isText && isSymbol) {
       textF = textF.concat(text).concat(symbol);
-    } 
-     else if (isSymbol) {
+    } else if (isSymbol) {
       textF = textF.concat(symbol);
     } else if (isNumber) {
       textF = textF.concat(number);
-    } else if(isText){
+    } else if (isText) {
       textF = textF.concat(text);
     }
     for (let i = 0; i < len; i++) {
@@ -38,7 +35,7 @@ function App() {
       password = password + textF.charAt(pas);
     }
     setPassword(password);
-  }
+  };
   const Copy = async () => {
     try {
       await navigator.clipboard.writeText(pass);
@@ -46,13 +43,13 @@ function App() {
     } catch (error) {
       alert("Error");
     }
-  }
+  };
 
   useEffect(() => {
-    if (theme === 'dark') {
-      root.classList.add('dark');
+    if (theme === "dark") {
+      root.classList.add("dark");
     } else {
-      root.classList.remove('dark');
+      root.classList.remove("dark");
     }
   }, [theme]);
 
@@ -60,8 +57,9 @@ function App() {
     <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 w-full h-screen flex flex-col items-center justify-center dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-700 transition-all duration-300 p-2">
       <button
         className="absolute top-5 right-5 p-2 rounded-full bg-gray-200 border-gray-700 dark:border-gray-200 dark:text-white border-2 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 shadow-md"
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-        {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      >
+        {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
       </button>
 
       <h1 className="text-5xl py-8 text-center text-white font-semibold dark:text-gray-100 transition-all duration-300">
@@ -80,12 +78,15 @@ function App() {
 
         <button
           className="bg-green-600 dark:bg-green-700 text-xl text-white py-3 px-5 rounded-lg w-full mt-4 shadow-lg hover:bg-green-500 dark:hover:bg-green-600 transition ease-in-out duration-300"
-          onClick={() => Copy()}>
+          onClick={() => Copy()}
+        >
           Copy
         </button>
 
         <div className="mt-8">
-          <label className="block text-gray-700 dark:text-gray-300 text-lg mb-2">Length: {len}</label>
+          <label className="block text-gray-700 dark:text-gray-300 text-lg mb-2">
+            Length: {len}
+          </label>
           <input
             type="range"
             id="vol"
@@ -108,7 +109,9 @@ function App() {
               onChange={(e) => setNumber(e.target.checked)}
               className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
             />
-            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Numbers</label>
+            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">
+              Numbers
+            </label>
           </div>
 
           <div className="flex items-center">
@@ -117,7 +120,9 @@ function App() {
               onChange={(e) => setText(e.target.checked)}
               className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
             />
-            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Text</label>
+            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">
+              Text
+            </label>
           </div>
 
           <div className="flex items-center">
@@ -126,20 +131,21 @@ function App() {
               onChange={(e) => setSymbol(e.target.checked)}
               className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
             />
-            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">Symbols</label>
+            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">
+              Symbols
+            </label>
           </div>
         </div>
 
         <button
           className="bg-yellow-600 dark:bg-yellow-700 text-xl text-white py-4 rounded-lg w-full mt-6 shadow-lg hover:bg-yellow-500 dark:hover:bg-yellow-600 transition ease-in-out duration-300"
-          onClick={() => Password()}>
+          onClick={() => Password()}
+        >
           Generate
         </button>
       </div>
     </div>
-
-
-  )
+  );
 }
 
-export default App
+export default App;
