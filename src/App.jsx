@@ -104,35 +104,89 @@ function App() {
 
         <div className="flex justify-between mt-6">
           <div className="flex items-center">
-            <input
-              type="checkbox"
-              onChange={(e) => setNumber(e.target.checked)}
-              className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
-            />
-            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">
-              Numbers
+            <label className="relative flex items-center cursor-pointer space-x-2 select-none">
+              <input
+                type="checkbox"
+                onChange={(e) => setNumber(e.target.checked)}
+                className="sr-only peer"
+              />
+              <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
+                <svg
+                  className="hidden w-4 h-4 text-white peer-checked:block absolute inset-0 m-auto transition-opacity duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span className="ml-2 text-gray-700 dark:text-gray-300 text-lg font-medium transition-colors duration-300 ease-in-out peer-checked:text-green-500">
+                Numbers
+              </span>
             </label>
           </div>
 
           <div className="flex items-center">
-            <input
-              type="checkbox"
-              onChange={(e) => setText(e.target.checked)}
-              className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
-            />
-            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">
-              Text
+            <label className="relative flex items-center cursor-pointer space-x-2 select-none">
+              <input
+                type="checkbox"
+                onChange={(e) => setText(e.target.checked)}
+                className="sr-only peer"
+              />
+              <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
+                <svg
+                  className="hidden w-4 h-4 text-white peer-checked:block absolute inset-0 m-auto transition-opacity duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span className="ml-2 text-gray-700 dark:text-gray-300 text-lg font-medium transition-colors duration-300 ease-in-out peer-checked:text-green-500">
+                Text
+              </span>
             </label>
           </div>
 
           <div className="flex items-center">
-            <input
-              type="checkbox"
-              onChange={(e) => setSymbol(e.target.checked)}
-              className="form-checkbox h-5 w-5 text-green-600 border-gray-300 dark:border-gray-600 rounded-md focus:ring-0"
-            />
-            <label className="ml-2 text-gray-700 dark:text-gray-300 text-lg">
-              Symbols
+            <label className="relative flex items-center cursor-pointer space-x-2 select-none">
+              <input
+                type="checkbox"
+                onChange={(e) => setSymbol(e.target.checked)}
+                className="sr-only peer"
+              />
+              <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
+                <svg
+                  className="hidden w-4 h-4 text-white peer-checked:block absolute inset-0 m-auto transition-opacity duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span className="ml-2 text-gray-700 dark:text-gray-300 text-lg font-medium transition-colors duration-300 ease-in-out peer-checked:text-green-500">
+                Symbols
+              </span>
             </label>
           </div>
         </div>

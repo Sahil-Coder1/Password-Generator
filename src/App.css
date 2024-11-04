@@ -1,0 +1,21 @@
+/* General styling for input */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #007bff; /* Changes color of checkbox on supported browsers */
+  }
+  
+  /* Style for checked input */
+  input[type="checkbox"]:checked {
+    /* Styling specific to when input is checked */
+    background-color: #4caf50; /* Color when checked */
+    border: 2px solid #4caf50;
+  }
+  
+  /* Label styling when input is checked */
+  input[type="checkbox"]:checked + label {
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
