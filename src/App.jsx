@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [pass, setPassword] = useState();
   const [len, setLength] = useState(10);
-  const [isNumber, setNumber] = useState(false);
+  const [isNumber, setNumber] = useState(true);
   const [isSymbol, setSymbol] = useState(false);
   const [isText, setText] = useState(false);
   const [theme, setTheme] = useState("light");
@@ -52,6 +52,10 @@ function App() {
       root.classList.remove("dark");
     }
   }, [theme]);
+
+window.onload = function() {
+  Password();
+};
 
   return (
     <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 w-full h-screen flex flex-col items-center justify-center dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-700 transition-all duration-300 p-2">
@@ -107,8 +111,9 @@ function App() {
             <label className="relative flex items-center cursor-pointer space-x-2 select-none">
               <input
                 type="checkbox"
-                onChange={(e) => setNumber(e.target.checked)}
+                onChange={(e) => {setNumber(e.target.checked)}}
                 className="sr-only peer"
+                checked={isNumber}
               />
               <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
                 <svg
@@ -136,7 +141,7 @@ function App() {
             <label className="relative flex items-center cursor-pointer space-x-2 select-none">
               <input
                 type="checkbox"
-                onChange={(e) => setText(e.target.checked)}
+                onChange={(e) => {setText(e.target.checked)}}
                 className="sr-only peer"
               />
               <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
@@ -165,7 +170,7 @@ function App() {
             <label className="relative flex items-center cursor-pointer space-x-2 select-none">
               <input
                 type="checkbox"
-                onChange={(e) => setSymbol(e.target.checked)}
+                onChange={(e) => {setSymbol(e.target.checked)}}
                 className="sr-only peer"
               />
               <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
