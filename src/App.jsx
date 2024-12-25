@@ -15,21 +15,17 @@ function App() {
     const symbol = "!@#$%&*()?";
     let password = "";
     let textF = "";
-    if (isNumber && isSymbol && isText) {
-      textF = textF.concat(number).concat(symbol).concat(text);
-    } else if (isNumber && isSymbol) {
-      textF = textF.concat(number).concat(symbol);
-    } else if (isNumber && isText) {
-      textF = textF.concat(number).concat(text);
-    } else if (isText && isSymbol) {
-      textF = textF.concat(text).concat(symbol);
-    } else if (isSymbol) {
-      textF = textF.concat(symbol);
-    } else if (isNumber) {
-      textF = textF.concat(number);
-    } else if (isText) {
-      textF = textF.concat(text);
+
+    if (isNumber) {
+      textF += number;
     }
+    if (isSymbol) {
+      textF += symbol;
+    }
+    if (isText) {
+      textF += text;
+    }
+
     for (let i = 0; i < len; i++) {
       const pas = Math.floor(Math.random() * textF.length);
       password = password + textF.charAt(pas);
@@ -46,6 +42,7 @@ function App() {
   };
 
   useEffect(() => {
+    Password();
     if (theme === "dark") {
       root.classList.add("dark");
     } else {
@@ -53,9 +50,7 @@ function App() {
     }
   }, [theme]);
 
-window.onload = function() {
-  Password();
-};
+
 
   return (
     <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 w-full h-screen flex flex-col items-center justify-center dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-700 transition-all duration-300 p-2">
@@ -89,7 +84,7 @@ window.onload = function() {
 
         <div className="mt-8">
           <label className="block text-gray-700 dark:text-gray-300 text-lg mb-2">
-            Length: {len}
+            Length : {len}
           </label>
           <input
             type="range"
@@ -111,7 +106,7 @@ window.onload = function() {
             <label className="relative flex items-center cursor-pointer space-x-2 select-none">
               <input
                 type="checkbox"
-                onChange={(e) => {setNumber(e.target.checked)}}
+                onChange={(e) => { setNumber(e.target.checked) }}
                 className="sr-only peer"
                 checked={isNumber}
               />
@@ -141,7 +136,7 @@ window.onload = function() {
             <label className="relative flex items-center cursor-pointer space-x-2 select-none">
               <input
                 type="checkbox"
-                onChange={(e) => {setText(e.target.checked)}}
+                onChange={(e) => { setText(e.target.checked) }}
                 className="sr-only peer"
               />
               <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
@@ -170,7 +165,7 @@ window.onload = function() {
             <label className="relative flex items-center cursor-pointer space-x-2 select-none">
               <input
                 type="checkbox"
-                onChange={(e) => {setSymbol(e.target.checked)}}
+                onChange={(e) => { setSymbol(e.target.checked) }}
                 className="sr-only peer"
               />
               <div className="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-green-500 transition-all duration-300 ease-in-out peer-checked:bg-green-500 peer-checked:ring-4 ring-green-300">
