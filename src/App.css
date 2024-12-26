@@ -1,21 +1,33 @@
-/* General styling for input */
 input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    accent-color: #007bff; /* Changes color of checkbox on supported browsers */
-  }
-  
-  /* Style for checked input */
-  input[type="checkbox"]:checked {
-    /* Styling specific to when input is checked */
-    background-color: #4caf50; /* Color when checked */
-    border: 2px solid #4caf50;
-  }
-  
-  /* Label styling when input is checked */
-  input[type="checkbox"]:checked + label {
-    color: #4caf50;
-    font-weight: bold;
-  }
-  
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #007bff;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border: 2px solid #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+}
+
+input[type="checkbox"]:checked + label {
+  color: #4caf50;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+input[type="checkbox"]:hover {
+  border-color: #007bff;
+  transform: scale(1.1);
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  border-color: #ff9800;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.8);
+}
