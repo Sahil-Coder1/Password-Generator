@@ -51,7 +51,6 @@ function App() {
   }, [theme]);
 
 
-
   return (
     <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 w-full h-screen flex flex-col items-center justify-center dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-700 transition-all duration-300 p-2">
       <button
